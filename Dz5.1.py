@@ -4,7 +4,7 @@ s = input("Name:")
 cont = True
 if  s[0] in string.digits :
     cont = False
-elif (len(s) > 1) == True and s.islower() == False:
+elif len(s) > 1 and not s.islower():
     cont = False
 elif keyword.iskeyword(s) == True:
     cont = False
