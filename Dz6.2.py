@@ -6,11 +6,11 @@ sec = (((num % 86400) % 3600) % 60)
 text = "{} День, {:02d}:{:02d}:{:02d}".format(day, hrs, min, sec,)
 text1 = "{} Дня, {:02d}:{:02d}:{:02d}".format(day, hrs, min, sec,)
 text2 = "{} Дней, {:02d}:{:02d}:{:02d}".format(day, hrs, min, sec,)
-x = str(day)
-y = int(x[-1])
-if y == 1:
+if 11 <= day % 100 <= 14:
+    print(text2)
+elif day % 10 == 1:
     print(text)
-elif 2 <= y <= 4:
+elif 2 <= day % 10 <= 4:
     print(text1)
-elif y > 4 or y == 0:
+else:
     print(text2)
