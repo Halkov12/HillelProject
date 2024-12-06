@@ -1,10 +1,7 @@
 def first_word(text):
     txt =text.replace('.',' ').replace(',', ' ')
     tlst = txt.split()
-    for i in tlst:
-        if i[0].isalpha() and i[-1].isalpha():
-            break
-    return i
+    return tlst[0]
 assert first_word("Hello world") == "Hello", 'Test1'
 assert first_word("greetings, friends") == "greetings", 'Test2'
 assert first_word("don't touch it") == "don't", 'Test3'
