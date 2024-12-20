@@ -31,9 +31,10 @@ class Group:
         self.max_v = max_v
 
     def add_student(self, student):
-        self.group.add(student)
         if len(self.group) >= self.max_v:
             raise LimitError(f"Нельзя добавить больше {self.max_v} студентов ")
+        else:
+            self.group.add(student)
 
     def delete_student(self, last_name):
         student = self.find_student(last_name)
@@ -50,11 +51,10 @@ class Group:
         all_students =  "\n".join(str(student) for student in self.group)
         return f'Number:{self.number}\n{all_students} '
 
-try:
-    group = Group('PD1')
-    for i in range(11):
-        group.add_student(Student('Male', 30, 'Steve', 'Jobs', 'AN142'))
-except LimitError as e:
-    print(e)
-
+group = Group('PD1')
+for i in range(15):
+    try:
+        group.add_student(Student('Male', 30 + i, f'Steve_{i}', 'Jobs', 'AN142'))
+    except LimitError as e:
+        print(e)
 print(group)
